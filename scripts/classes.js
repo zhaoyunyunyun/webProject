@@ -1,4 +1,5 @@
 /*After loaded the page, and quote the function initPage()*/
+/*zengjinjie edit*/
 window.onload = initPage;
 /*判断用户是否在欢迎界面*/
 var welcomePaneShowing = true;
