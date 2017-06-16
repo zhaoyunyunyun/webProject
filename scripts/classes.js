@@ -23,6 +23,7 @@ function initPage() {
     /*currentBtn.onmouseover = showHint;
     currentBtn.onmouseout = hideHint;
     */
+    /*onclick*/
     currentBtn.onmouseover = buttonOver;
     currentBtn.onmouseout = buttonOut;
     currentBtn.onclick = showTab;
