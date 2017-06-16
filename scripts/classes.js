@@ -1,22 +1,32 @@
+/*After loaded the page, and quote the function initPage()*/
 window.onload = initPage;
+/*判断用户是否在欢迎界面*/
 var welcomePaneShowing = true;
 
+/*初始化页面函数*/
 function initPage() {
+  /*获取id=tabs的导航栏按钮（横向的div栏）*/
   var tabs = document.getElementById("tabs").getElementsByTagName("a");
   for (var i=0; i<tabs.length; i++) {
     var currentTab = tabs[i];
+    /*鼠标移入*/
     currentTab.onmouseover = showHint;
+    /*鼠标移出*/
     currentTab.onmouseout = hideHint;
+    /*鼠标点击相应的按钮*/
     currentTab.onclick = showTab;
   }
+  
   var buttons = document.getElementById("navigation").getElementsByTagName("a");
   for (var i=0; i<buttons.length; i++) {
     var currentBtn = buttons[i];
-    currentBtn.onmouseover = showHint;
+    /*currentBtn.onmouseover = showHint;
     currentBtn.onmouseout = hideHint;
-    currentBtn.onclick = showTab;
+    */
     currentBtn.onmouseover = buttonOver;
     currentBtn.onmouseout = buttonOut;
+    currentBtn.onclick = showTab;
+   
   }
 }
 
@@ -71,6 +81,8 @@ function showTab() {
       currentTab.className = 'inactive';
     }
   }
+  
+  
 
   var request = createRequest();
   if (request == null) {
