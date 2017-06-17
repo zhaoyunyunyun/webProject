@@ -28,18 +28,26 @@ function initPage() {
         currentBtn.onmouseout = buttonOut;
         currentBtn.onmouseover = buttonOver;
         currentBtn.onclick = showTab;
+        addEventHandler(currentBtn,"mouseover",showHint);
+        addEventHandler(currentBtn,"mouseout",hideHint);
+        currentBtn.onclick=showTab;
+        addEventHandler(currentBtn,"mouseover",buttonOver);
+        addEventHandler(currentBtn,"mouseout",buttonOut);
 
 
 
     }
 }
 
-function showHint() {
+function showHint(e) {
+
     /*r如果不在欢迎界面*/
     if (!welcomePaneShowing) {
         return;
     }
-    switch (this.title) {
+    /*获取激活对象*/
+    var me=getActivatedObject(e);
+    switch (me.title) {
         case "beginners":
             var hintText = "Just getting started? Come join us!";
             break;
@@ -65,8 +73,9 @@ function hideHint() {
     }
 }
 
-function showTab() {
-    var selectedTab = this.title;
+function showTab(e) {
+    var me=getActivatedObject(e);
+    var selectedTab = me.title;
     if (selectedTab === "welcome") {
         welcomePaneShowing = true;
         document.getElementById("content").innerHTML = "<h3>Click a tab to display the course schedule for the class</h3>";
@@ -109,9 +118,11 @@ function showSchedule() {
     }
 }
 
-function buttonOver() {
-    this.className = "active";
+function buttonOver(e) {
+    var me=getActivatedObject(e);
+    me.className = "active";
 }
-function buttonOut() {
-    this.className = "";
+function buttonOut(e) {
+    var me=getActivatedObject(e);
+    me.className = "";
 }
