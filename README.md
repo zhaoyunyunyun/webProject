@@ -33,3 +33,5 @@ classes.css is used to modify the web page style.
 classes.js is used to describe Web behavior.
 
 Additionally, beginners.html, intermediate.html and advanced.html contain the corresponding course information respectively.
+
+Effects of the webpage: http://10.8.0.16/zhaoyun/webProject/classes.html#
